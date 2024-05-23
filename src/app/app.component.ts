@@ -4,6 +4,7 @@ import { RouterOutlet } from '@angular/router';
 import { AboutComponent } from './about/about.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
