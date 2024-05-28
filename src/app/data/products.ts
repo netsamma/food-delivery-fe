@@ -14,14 +14,14 @@ let items = [
     price: 200,
   },
   {
-    title: 'Shiba Dog',
+    title: 'Shiba Pangolin',
     subtitle: 'Chinese Dog Breed ',
     img_url: 'https://material.angular.io/assets/img/examples/shiba2.jpg',
     description: 'The Shiba Dog is a pretty dog',
     price: 400,
   },
   {
-    title: 'Shiba Dog',
+    title: 'Shiba Monkey',
     subtitle: 'Chinese Dog Breed ',
     img_url: 'https://material.angular.io/assets/img/examples/shiba2.jpg',
     description: 'The Shiba Dog is a pretty dog',

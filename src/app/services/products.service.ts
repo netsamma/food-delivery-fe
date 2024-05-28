@@ -10,6 +10,7 @@ export class ProductsService {
   constructor(private http: HttpClient) {}
 
   private searchSubject = new BehaviorSubject<string>('');
+  search$ = this.searchSubject.asObservable();
 
   private url = 'https://server-node-igna.vercel.app/shops';
 

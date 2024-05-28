@@ -11,11 +11,9 @@ import { ProductsService } from '../services/products.service';
 })
 export class NavbarComponent {
 
-  constructor(private productService: ProductsService){
+  constructor(private productService: ProductsService){}
 
-  }
-
-  onSearch(event: Event) {
+  onSearch(event: Event): void {
     const input = event.target as HTMLInputElement;
     this.productService.updateSearchTerm(input.value);
     console.log(input.value);
