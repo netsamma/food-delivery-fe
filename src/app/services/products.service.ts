@@ -18,6 +18,10 @@ export class ProductsService {
     return this.http.get<Product[]>(this.url);
   }
 
+  getProductsByCity(city: string): Observable<Product[]> {
+    return this.http.get<Product[]>(this.url+"/"+city);
+  }
+
   updateSearchTerm(term: string) {
     this.searchSubject.next(term);
   }

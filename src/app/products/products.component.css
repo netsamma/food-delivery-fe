@@ -1,22 +1,6 @@
-.example-card {
-    max-width: 300px;
-    min-height: 250px;
-    margin: 20px;
-  }
-  
-  .example-header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-    background-size: cover;
-  }
-
-  .grid{
+.grid{
     display: grid;
     /* grid-template-columns:  auto, auto, auto, auto; */
     grid-template-columns: repeat(4, 25%);
     padding: 30px;
-  }
-
-  
-  .white{
-    color: whitesmoke;
-  }
+}

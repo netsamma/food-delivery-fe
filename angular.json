@@ -29,12 +29,7 @@
               "src/styles.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
-            "scripts": [
-              "src/assets/vendor/swiper/swiper-bundle.min.js",
-              "src/assets/vendor/glightbox/js/glightbox.min.js",
-              "src/assets/vendor/aos/aos.js",
-              "src/assets/js/main.js"
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
