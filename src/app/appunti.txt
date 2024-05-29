@@ -1,4 +1,4 @@
-angular.json
+# angular.json
 
 "src/assets/vendor/swiper/swiper-bundle.min.js",
 "src/assets/vendor/glightbox/js/glightbox.min.js",
@@ -6,7 +6,7 @@ angular.json
 "src/assets/js/main.js"
 
 
-home page template 
+# home page template 
 
 <!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
