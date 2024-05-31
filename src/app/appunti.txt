@@ -1,13 +1,10 @@
-# angular.json
-
+script json: (angular.json)
 "src/assets/vendor/swiper/swiper-bundle.min.js",
-"src/assets/vendor/glightbox/js/glightbox.min.js",
-"src/assets/vendor/aos/aos.js",
-"src/assets/js/main.js"
+              "src/assets/vendor/glightbox/js/glightbox.min.js",
+              "src/assets/vendor/aos/aos.js",
+              "src/assets/js/main.js"
 
-
-# home page template 
-
+HOMEPAGE APPUNTI HTML: 
 <!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

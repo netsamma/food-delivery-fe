@@ -17,7 +17,7 @@ export class ProductsService {
   getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(this.url);
   }
-
+  
   getProductsByCity(city: string): Observable<Product[]> {
     return this.http.get<Product[]>(this.url+"/"+city);
   }

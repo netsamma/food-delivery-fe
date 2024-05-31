@@ -1,19 +1,19 @@
 import { NgFor, NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { ProductsService } from '../services/products.service';
-import { Product } from '../interfaces/product';
+import { ProductsService } from '../../services/products.service';
+import { Product } from '../../interfaces/product';
 import { ProductComponent } from '../product/product.component';
 // import items from '../data/products';
 
 @Component({
   selector: 'app-products',
   standalone: true,
-  imports: [NgFor, NgIf, FormsModule, ProductComponent],
-  templateUrl: './products.component.html',
-  styleUrl: './products.component.css',
+  imports: [ NgFor, NgIf, FormsModule, ProductComponent],
+  templateUrl: './shops.component.html',
+  styleUrl: './shops.component.css',
 })
-export class ProductsComponent implements OnInit {
+export class ShopsComponent implements OnInit {
 
   products: Product[] = [];
   filteredProducts: Product[] = [];
@@ -35,7 +35,8 @@ export class ProductsComponent implements OnInit {
     });
   }
 
-  handleEvent(event: string) {
-    console.log(event);
-  }
+
+handleEvent(event: string) {
+  console.log(event);
+}
 }
