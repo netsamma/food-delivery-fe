@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { User } from '../../interfaces/user';
 import { FormsModule } from '@angular/forms';
 import { NgIf } from '@angular/common';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -11,34 +12,14 @@ import { NgIf } from '@angular/common';
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })
-
 export class LoginComponent {
-  url = 'http://localhost:3000/api/login';
   username: string = 'admin';
   password: string = 'pa123';
   errorMessage: string = '';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private authService: AuthService) {}
 
-  login() {
-    const loginData = {
-      username: this.username,
-      password: this.password,
-    };
-
-    this.http.post(this.url, loginData).subscribe({
-      next: (response: any) => {
-        this.errorMessage = "";
-        localStorage.setItem('token', response.token);
-        console.log("Token: ", response.token);
-      },
-      error: (error) => {
-        console.error('Login failed:', error);
-        this.errorMessage = error.error.error;
-        console.log(this.errorMessage);
-        
-      },
-    });
-
+  login(username: string, password: string) {
+    this.authService.login(username, password)
   }
 }

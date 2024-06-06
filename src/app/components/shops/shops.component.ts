@@ -7,7 +7,7 @@ import { ProductComponent } from '../product/product.component';
 // import items from '../data/products';
 
 @Component({
-  selector: 'app-products',
+  selector: 'app-shops',
   standalone: true,
   imports: [ NgFor, NgIf, FormsModule, ProductComponent],
   templateUrl: './shops.component.html',

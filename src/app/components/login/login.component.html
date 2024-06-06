@@ -1,7 +1,7 @@
 <div class="container">
 	<div>
 		<h2>Login</h2>
-		<form (ngSubmit)="login()">
+		<form (ngSubmit)="login(username, password)">
 		  <div>
 			<input type="text" id="username" [(ngModel)]="username" name="username" required>
 		  </div>

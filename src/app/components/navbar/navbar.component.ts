@@ -1,17 +1,34 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ProductsService } from '../../services/products.service';
+import { NgIf } from '@angular/common';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, NgIf],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css',
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
+  token: string | null = '';
 
-  constructor(private productService: ProductsService){}
+  constructor(
+    private productService: ProductsService,
+    private authService: AuthService
+  ) {}
+
+  ngOnInit() {
+    this.authService.token$.subscribe((token: any) => {
+      this.token = token;
+      console.log('Token changed:', this.token); // Aggiungi questo per il debug
+    })
+  }
+
+  logout() {
+    this.authService.logout();
+  }
 
   onSearch(event: Event): void {
     const input = event.target as HTMLInputElement;
