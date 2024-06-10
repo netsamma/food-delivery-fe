@@ -17,6 +17,6 @@ export class ProductComponent {
 
 
 emitEvent() {
-  this.myEvent.emit(this.product.denominazione);
+  this.myEvent.emit(this.product.name);
 }
 }

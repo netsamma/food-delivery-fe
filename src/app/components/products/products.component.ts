@@ -30,7 +30,7 @@ export class ProductsComponent implements OnInit {
 
     this.productService.search$.subscribe(term => {
       this.filteredProducts = this.products.filter(product => 
-        product.denominazione.toLowerCase().includes(term.toLowerCase())
+        product.name.toLowerCase().includes(term.toLowerCase())
       );
     });
   }
