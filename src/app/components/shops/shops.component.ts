@@ -1,9 +1,9 @@
 import { NgFor, NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { ProductsService } from '../../services/products.service';
 import { Shop } from '../../interfaces/shop';
 import { ShopComponent } from '../shop/shop.component';
+import { ShopsService } from '../../services/shops.service';
 // import items from '../data/products';
 
 @Component({
@@ -19,18 +19,18 @@ export class ShopsComponent implements OnInit {
   filteredShops: Shop[] = [];
   filtro: string = '';
 
-  constructor(private productService: ProductsService) {}
+  constructor(private shopsService: ShopsService) {}
 
   ngOnInit() {
     // Carica i prodotti all'inizializzazione
-    this.productService.getProducts().subscribe((data) => {
+    this.shopsService.getShops().subscribe((data) => {
       this.shops = data;
       this.filteredShops = data;
     });
 
-    this.productService.search$.subscribe(term => {
-      this.filteredShops = this.shops.filter(product => 
-        product.denominazione.toLowerCase().includes(term.toLowerCase())
+    this.shopsService.search$.subscribe(term => {
+      this.filteredShops = this.shops.filter(shop => 
+        shop.denominazione.toLowerCase().includes(term.toLowerCase())
       );
     });
   }

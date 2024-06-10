@@ -1,6 +1,6 @@
 export interface Product {
   id: number;
-  denominazione: string;
+  nome: string;
   indirizzo: string;
   citta: string;
 }
