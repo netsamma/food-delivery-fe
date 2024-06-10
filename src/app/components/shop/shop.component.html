@@ -1,4 +1,4 @@
-<a [routerLink]="['/shop-details', shop.id]">
+<a [routerLink]="['/shop-details', shop.id, encodeParam(shop.denominazione)]">
     <mat-card class="example-card">
         <mat-card-header>
           <div mat-card-avatar class="example-header-image"></div>

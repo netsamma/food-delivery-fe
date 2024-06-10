@@ -12,7 +12,7 @@ export class ProductsService {
   private searchSubject = new BehaviorSubject<string>('');
   search$ = this.searchSubject.asObservable();
 
-  private url = 'https://server-node-igna.vercel.app/shops';
+  private url = 'https://server-node-igna.vercel.app/products';
 
   getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(this.url);

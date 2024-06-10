@@ -12,20 +12,16 @@ export class ShopDetailsComponent implements OnInit, OnDestroy{
 
   id!: number;
   denominazione!: string;
+  citta!: string;
   private sub: any;
 
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
-       this.id = +params['id']; // (+) converts string 'id' to a number
-       this.denominazione = params['denominazione'];
-
-       console.log(this.denominazione);
-       
-
+       this.id = +params['id'];
+       this.denominazione = decodeURIComponent(params['denominazione'])
        // In a real app: dispatch action to load the details here.
-
 
     });
   }
