@@ -6,9 +6,9 @@
       class="w-75"
     />
     <div class="grid">
-      @for (product of filteredProducts; track $index) {
-      <div *ngIf="product.denominazione.toLocaleLowerCase().includes(filtro)">
-        <app-product [product] = "product" (myEvent)="handleEvent($event)"></app-product>
+      @for (shop of filteredShops; track $index) {
+      <div *ngIf="shop.denominazione.toLocaleLowerCase().includes(filtro)">
+        <app-shop [shop] = "shop" (myEvent)="handleEvent($event)"></app-shop>
       </div>
       }
     </div>
