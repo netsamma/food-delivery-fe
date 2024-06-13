@@ -15,12 +15,4 @@ export class ShopComponent {
   @Input () shop!: Shop 
   @Output() myEvent = new EventEmitter<string>;
 
-
-  emitEvent() {
-    this.myEvent.emit(this.shop.denominazione);
-  }
-
-  encodeParam(param: string): string {
-    return encodeURIComponent(param);
-  }
 }

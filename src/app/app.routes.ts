@@ -14,7 +14,7 @@ export const routes: Routes = [
   { path: 'shops', component: ShopsComponent },
   { path: 'login', component: LoginComponent },
   { path: '', redirectTo: '/', pathMatch: 'full' },
-  { path: 'shop-details/:id/:denominazione', component:ShopDetailsComponent,
+  { path: 'shop-details/:id', component:ShopDetailsComponent,
     children: [
       { path: 'products', component: ProductsComponent }
     ]

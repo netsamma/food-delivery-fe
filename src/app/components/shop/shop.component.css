@@ -2,6 +2,8 @@
     max-width: 300px;
     min-height: 250px;
     margin: 20px;
+    display: flex;
+    flex-direction: column;
   }
   
   .example-header-image {
@@ -11,4 +13,9 @@
   
   .white{
     color: whitesmoke;
+  }
+
+  a{
+    flex: 1;
+    text-decoration: none;
   }
