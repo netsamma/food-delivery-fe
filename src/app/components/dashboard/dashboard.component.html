@@ -1,13 +1,19 @@
-<h1>dashboard works!</h1>
-
-<div class="conteiner">
-    <label for="user">Choose a User:</label>
-<select name="" class="my-4" [(ngModel)]="filter">
-    <option value="" disabled selected hidden>Seleziona un'opzione</option>
-    <option value="admin">Admin</option>
-    <option value="user">User</option>
-</select>
-@for (user of users | filterUserPipe: filter; track $index) {
-    <p>{{user.username}}: {{user.role}}</p>
-}
-</div>
+<div class="container text-center">
+    <div class="row py-4">
+      <div class="col">
+        <label for="user">Choose a User:</label>
+        <br>
+        <select name="" class="my-4" [(ngModel)]="filter">
+            <option value="" disabled selected hidden>Seleziona un'opzione</option>
+            <option value="admin">Admin</option>
+            <option value="user">User</option>
+        </select>
+        @for (user of users | filterUserPipe: filter; track $index) {
+            <p>{{user.username}}: {{user.role}}</p>
+        }
+      </div>
+      <div class="col">
+        <app-shop-form></app-shop-form>
+      </div>
+    </div>
+  </div>
