@@ -14,14 +14,18 @@ export class ShopsService {
   search$ = this.searchSubject.asObservable();
 
   //private url = 'https://server-node-igna.vercel.app/shops';
-  private url = 'http://localhost:3000/shops';
+  private url = 'http://localhost:3000';
 
   getShops(): Observable<Shop[]> {
-    return this.http.get<Shop[]>(this.url);
+    return this.http.get<Shop[]>(this.url+"/shops");
   }
   
   getShopsByCity(city: string): Observable<Shop[]> {
-    return this.http.get<Shop[]>(this.url+"/"+city);
+    return this.http.get<Shop[]>(this.url+"/shops/"+city);
+  }
+
+  addShop(shop: Shop){
+    return this.http.post<Shop>(this.url+"/shops", shop)
   }
 
   updateSearchTerm(term: string) {

@@ -3,9 +3,9 @@
     <form [formGroup]="shopForm" (ngSubmit)="onSubmit()">
 
         <div class="form-group py-2">
-            <label for="name">Denominazione</label>
-            <input type="text" id="name" formControlName="name" class="form-control" />
-            <div *ngIf="shopForm.get('name')?.invalid && shopForm.get('name')?.touched" class="text-danger">
+            <label for="denominazione">Denominazione</label>
+            <input type="text" id="denominazione" formControlName="denominazione" class="form-control" />
+            <div *ngIf="shopForm.get('denominazione')?.invalid && shopForm.get('denominazione')?.touched" class="text-danger">
                 Il nome è obbligatorio.
             </div>
         </div>

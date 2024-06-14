@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { ActivatedRoute, Router } from '@angular/router';
 import { Shop } from '../../interfaces/shop';
 import { NgIf } from '@angular/common';
+import { ShopsService } from '../../services/shops.service';
 
 @Component({
     selector: 'app-shop-form',
@@ -15,6 +16,7 @@ export class ShopFormComponent implements OnInit {
     shopForm!: FormGroup;
     isEditMode: boolean = false;
     shopId!: number;
+    shopService!: ShopsService;
 
     constructor(
         private fb: FormBuilder,
@@ -24,7 +26,7 @@ export class ShopFormComponent implements OnInit {
 
     ngOnInit(): void {
         this.shopForm = this.fb.group({
-            name: ['', Validators.required],
+            denominazione: ['', Validators.required],
             address: ['', Validators.required],
             phoneNumber: ['', [Validators.required, Validators.pattern(/^[0-9]+$/)]]
         });
@@ -44,6 +46,8 @@ export class ShopFormComponent implements OnInit {
     onSubmit(): void {
         if (this.shopForm.valid) {
             const shop: Shop = this.shopForm.value;
+            console.log(shop);
+
 
             if (this.isEditMode) {
                 shop.id = this.shopId;
