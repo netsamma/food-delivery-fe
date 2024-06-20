@@ -1,7 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterOutlet } from '@angular/router';
 import { ShopsService } from '../../services/shops.service';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-shop-details',

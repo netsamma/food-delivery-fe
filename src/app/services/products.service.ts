@@ -10,8 +10,8 @@ export class ProductsService {
   constructor(private http: HttpClient) {}
 
   //private url = 'https://server-node-igna.vercel.app/products';
-  //private url = "http://localhost:3000/products";
-  private url = "https://food-delivery-be-six.vercel.app/products";
+  private url = "http://localhost:3000/products";
+  //private url = "https://food-delivery-be-six.vercel.app/products";
   
  
   private searchSubject = new BehaviorSubject<string>('');
@@ -20,6 +20,10 @@ export class ProductsService {
  
   getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(this.url);
+  }
+
+  getProductsByShopId(id: number): Observable<Product[]> {
+    return this.http.get<Product[]>(this.url+"/"+id);
   }
   
   getProductsByCity(city: string): Observable<Product[]> {
