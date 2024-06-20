@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Product } from '../interfaces/product';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Shop } from '../interfaces/shop';
 
@@ -14,7 +13,9 @@ export class ShopsService {
   search$ = this.searchSubject.asObservable();
 
   //private url = 'https://server-node-igna.vercel.app/shops';
-  private url = 'http://localhost:3000';
+  //private url = 'http://localhost:3000';
+  private url = "https://food-delivery-be-six.vercel.app";
+
 
   getShops(): Observable<Shop[]> {
     return this.http.get<Shop[]>(this.url+"/shops");
@@ -22,6 +23,10 @@ export class ShopsService {
   
   getShopsByCity(city: string): Observable<Shop[]> {
     return this.http.get<Shop[]>(this.url+"/shops/"+city);
+  }
+
+  getShopById(id: number): Observable<Shop[]> {
+    return this.http.get<Shop[]>(this.url+"/shops/"+id);
   }
 
   addShop(shop: Shop){

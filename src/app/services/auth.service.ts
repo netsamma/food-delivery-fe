@@ -7,7 +7,8 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class AuthService {
 
-  url = 'http://localhost:3000/api/login';
+  //url = 'http://localhost:3000/api/login';
+  private url = "https://food-delivery-be-six.vercel.app";
 
   private tokenSubject: BehaviorSubject<string | null>;
   public token$: any;
@@ -25,7 +26,7 @@ export class AuthService {
       password: password,
     };
 
-    this.http.post(this.url, loginData).subscribe({
+    this.http.post(this.url+"/login", loginData).subscribe({
       next: (response: any) => {
         //this.errorMessage = "";
         localStorage.setItem('token', response.token);
