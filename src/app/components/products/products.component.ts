@@ -5,51 +5,45 @@ import { ProductsService } from '../../services/products.service';
 import { Product } from '../../interfaces/product';
 import { ProductComponent } from '../product/product.component';
 import { ActivatedRoute } from '@angular/router';
-// import items from '../data/products';
 
 @Component({
   selector: 'app-products',
   standalone: true,
-  imports: [ NgFor, NgIf, FormsModule, ProductComponent],
+  imports: [NgFor, NgIf, FormsModule, ProductComponent],
   templateUrl: './products.component.html',
-  styleUrl: './products.component.css',
+  styleUrls: ['./products.component.css'],
 })
 export class ProductsComponent implements OnInit {
 
   products: Product[] = [];
   filteredProducts: Product[] = [];
   filtro: string = '';
+  shopId?: number;
   id!: number;
-  sub: any;
 
   constructor(private route: ActivatedRoute, private productService: ProductsService) {}
 
   ngOnInit() {
-    // Carica i prodotti all'inizializzazione
-
-    // this.productService.getProducts().subscribe((data) => {
-    //   this.products = data;
-    //   this.filteredProducts = data;
-    // });
-    this.sub = this.route.params.subscribe(params => {
-      this.id = +params['id'];
-      this.productService.getProductsByShopId(this.id).subscribe((data) => {
+    this.shopId = +this.route.snapshot.parent?.paramMap.get('id')!;  
+    // Usa l'operatore "!" per indicare a TypeScript che il valore non sarà null
+    if (this.shopId!=null) {
+      this.productService.getProductsByShopId(this.shopId).subscribe((data) => {
+        console.log(data);
         this.products = data;
         this.filteredProducts = data;
       });
-    });
+    } else {
+      console.error('shopId non valido');
+    }
 
     this.productService.search$.subscribe(term => {
       this.filteredProducts = this.products.filter(product => 
         product.name.toLowerCase().includes(term.toLowerCase())
       );
     });
-  } 
+  }
 
-   
   handleEvent(event: string) {
     console.log(event);
   }
-
 }
-

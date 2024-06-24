@@ -1,17 +1,17 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  //url = 'http://localhost:3000/api/login';
-  private url = "https://food-delivery-be-six.vercel.app";
+  private url = 'http://localhost:3000';
+  //private url = "https://food-delivery-be-six.vercel.app";
 
   private tokenSubject: BehaviorSubject<string | null>;
-  public token$: any;
+  public token$: Observable<string | null>;
   
   constructor(private http: HttpClient) { 
     const token = localStorage.getItem('token');
