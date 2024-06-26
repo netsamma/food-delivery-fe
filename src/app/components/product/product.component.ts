@@ -14,7 +14,7 @@ import { RouterLink } from '@angular/router';
 export class ProductComponent {
   @Input () product!: Product 
   @Output() myEvent = new EventEmitter<string>;
-
+  products = "products";
 
 emitEvent() {
   this.myEvent.emit(this.product.name);
