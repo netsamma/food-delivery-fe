@@ -28,7 +28,6 @@ export class ProductsComponent implements OnInit {
     // Usa l'operatore "!" per indicare a TypeScript che il valore non sarà null
     if (this.shopId!=null) {
       this.productService.getProductsByShopId(this.shopId).subscribe((data) => {
-        console.log(data);
         this.products = data;
         this.filteredProducts = data;
       });

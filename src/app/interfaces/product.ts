@@ -6,4 +6,5 @@ export interface Product {
   price: number;
   availability: number;
   shopId: number;
+  productId: number;
 }
