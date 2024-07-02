@@ -23,16 +23,17 @@
 </a> -->
 
 <!-- <img mat-card-image src={{product.img_url}} alt="Photo of a Shiba Inu"> -->
-<div class="card" style="max-width: 540px; min-height: 300px; max-height: 594px">
+<div class="card mb-3" style="max-width: 540px; min-height: 150px; max-height: 594px">
   <div class="row no-gutters">
-    <div class="col-md-6">
+    <div class="col-md-6 p-4">
       <img src= {{product.img_url}} class="card-img" alt="...">
     </div>
     <div class="col-md-6">
       <div class="card-body">
         <h5 class="card-title">{{ product.name }}</h5>
         <p class="card-text">{{ product.description}}</p>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        <p class="card-text text-danger">{{ product.price | currency:"EUR"}}</p>
+        <button type="button" class="btn btn-primary">Aggiungi al carrello</button>
       </div>
     </div>
   </div>

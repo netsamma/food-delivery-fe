@@ -2,11 +2,12 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterOutlet } from '@angular/router';
 import { ShopsService } from '../../services/shops.service';
 import { Shop } from '../../interfaces/shop';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-shop-details',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, CommonModule],
   templateUrl: './shop-details.component.html',
   styleUrl: './shop-details.component.css'
 })

@@ -7,7 +7,7 @@
   /> -->
   <div class="row">
     @for (product of filteredProducts; track $index) {
-    <div class="col-md-6 mb-3" *ngIf="product.name.toLocaleLowerCase().includes(filtro)">
+    <div class="col-md-6" *ngIf="product.name.toLocaleLowerCase().includes(filtro)">
       <app-product [product] = "product" (myEvent)="handleEvent($event)"></app-product>
     </div>
     }

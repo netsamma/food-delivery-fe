@@ -7,6 +7,7 @@ import { ShopsComponent } from './components/shops/shops.component';
 import { LoginComponent } from './components/login/login.component';
 import { ShopDetailsComponent } from './components/shop-details/shop-details.component';
 import { authGuard } from './guards/auth.guard';
+import { CartComponent } from './components/cart/cart.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -14,6 +15,7 @@ export const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, canActivate: [authGuard] },
   { path: 'shops', component: ShopsComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'cart', component: CartComponent },
   { path: '', redirectTo: '/', pathMatch: 'full' },
   { path: 'shop-details/:id', component:ShopDetailsComponent,
     children: [
