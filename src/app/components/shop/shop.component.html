@@ -1,4 +1,4 @@
-    <mat-card class="example-card">
+    <!-- <mat-card class="example-card">
       <a [routerLink]="['/shop-details', shop.id, 'products']">
         <mat-card-header>
           <div mat-card-avatar class="example-header-image"></div>
@@ -9,7 +9,6 @@
             >{{ shop.citta }}
           </mat-card-subtitle>
         </mat-card-header>
-        <!-- <img mat-card-image src={{product.img_url}} alt="Photo of a Shiba Inu"> -->
         <mat-card-content [style.flexGrow]=1>
           <p class="description white">
             {{ shop.indirizzo }}
@@ -20,4 +19,12 @@
           <button mat-button>LIKE</button>
           <button mat-button>SHARE</button>
         </mat-card-actions>
-    </mat-card>
+    </mat-card> -->
+
+
+    <div class="card" style="width: 18rem;">
+      <img src= {{shop.img}} class="card-img-top" alt="...">
+      <div class="card-body">
+        <p class="card-text">{{shop.denominazione}}</p>
+      </div>
+    </div>

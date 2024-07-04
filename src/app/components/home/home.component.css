@@ -1,4 +1,7 @@
-.conteiner {
-   height: 50px;
-   width: 50px;
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 80vh;
+	transition: 0.5s;
 }

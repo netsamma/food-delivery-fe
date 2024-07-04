@@ -12,9 +12,9 @@ export class ShopsService {
   private searchSubject = new BehaviorSubject<string>('');
   search$ = this.searchSubject.asObservable();
 
+  private url = 'http://localhost:3000';
   //private url = 'https://server-node-igna.vercel.app/shops';
-  //private url = 'http://localhost:3000';
-  private url = "https://food-delivery-be-six.vercel.app";
+  //private url = "https://food-delivery-be-six.vercel.app";
 
 
   getShops(): Observable<Shop[]> {

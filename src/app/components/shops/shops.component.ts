@@ -24,6 +24,8 @@ export class ShopsComponent implements OnInit {
   ngOnInit() {
     // Carica i prodotti all'inizializzazione
     this.shopsService.getShops().subscribe((data) => {
+      console.log(data);
+      
       this.shops = data;
       this.filteredShops = data;
     });

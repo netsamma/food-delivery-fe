@@ -4,7 +4,7 @@ import { RouterOutlet } from '@angular/router';
 import { AboutComponent } from './components/about/about.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HomeComponent } from './components/home/home.component';
-import { FormsModule } from '@angular/forms';
+import { FooterComponent } from './components/footer/footer.component';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
   imports: [
     RouterOutlet,
     NavbarComponent,
+    FooterComponent,
     AboutComponent,
     DashboardComponent,
     HomeComponent,

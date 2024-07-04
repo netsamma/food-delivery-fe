@@ -3,4 +3,5 @@ export interface Shop {
   denominazione: string;
   indirizzo: string;
   citta: string;
+  img: string;
 }
