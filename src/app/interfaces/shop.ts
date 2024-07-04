@@ -4,4 +4,5 @@ export interface Shop {
   indirizzo: string;
   citta: string;
   img: string;
+  rating: number;
 }
