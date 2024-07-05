@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Shop } from '../interfaces/shop';
+import { environment } from '../../environments/environment.development';
 
 @Injectable({
   providedIn: 'root',
@@ -12,10 +13,7 @@ export class ShopsService {
   private searchSubject = new BehaviorSubject<string>('');
   search$ = this.searchSubject.asObservable();
 
-  private url = 'http://localhost:3000';
-  //private url = 'https://server-node-igna.vercel.app/shops';
-  //private url = "https://food-delivery-be-six.vercel.app";
-
+  private url = environment.apiUrl;
 
   getShops(): Observable<Shop[]> {
     return this.http.get<Shop[]>(this.url+"/shops");
