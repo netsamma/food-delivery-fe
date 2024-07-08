@@ -13,7 +13,7 @@ import { AuthService } from '../../services/auth.service';
 })
 export class NavbarComponent implements OnInit {
   token: string | null = '';
-  isOpen = false;
+  isOpen: boolean = false;
 
   constructor(
     private productService: ProductsService,
