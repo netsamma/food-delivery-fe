@@ -8,7 +8,7 @@ import { environment } from '../../environments/environment';
 })
 export class ProductsService {
   constructor(private http: HttpClient) {}
-  // Prova
+
   private url = environment.apiUrl;
 
   private searchSubject = new BehaviorSubject<string>('');

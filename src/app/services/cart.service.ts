@@ -27,5 +27,16 @@ export class CartService {
     return this.cartItemsSignal()
   }
 
+  getCartCount(){
+    //return this.cartItemsSignal().length;
+    console.log(this.cartItemsSignal());
+    return 1;
+
+    // return this.cartItemsSignal().reduce((count, item) => {
+    //   return count + (1 * item.quantity);
+    // }, 0);
+  }
+
+
   constructor() { }
 }

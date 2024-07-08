@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, effect, OnChanges, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ProductsService } from '../../services/products.service';
 import { NgIf } from '@angular/common';
 import { AuthService } from '../../services/auth.service';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-navbar',
@@ -11,20 +12,31 @@ import { AuthService } from '../../services/auth.service';
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css',
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit, OnChanges {
   token: string | null = '';
   isOpen: boolean = false;
+  cartCount: number = 0;
 
   constructor(
     private productService: ProductsService,
-    private authService: AuthService
-  ) {}
+    private authService: AuthService,
+    private cartService: CartService
+  ) {
+    effect(() => {
+      this.cartCount = this.cartService.getCartItems().length;
+    });
+  }
 
   ngOnInit() {
     this.authService.token$.subscribe((token: any) => {
       this.token = token;
       console.log('Token changed:', this.token); // Aggiungi questo per il debug
     })
+  }
+
+  ngOnChanges(){
+    this.cartCount = this.cartService.getCartCount();
+    //this.cartCount = 5;
   }
 
   logout() {
