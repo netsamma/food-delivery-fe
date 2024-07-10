@@ -30,18 +30,18 @@
                         alt="Cotton T-shirt"
                       />
                     </div>
-                    <div class="col-md-3 col-lg-3 col-xl-3">
+                    <div class="col-md-3 col-lg-3 col-xl-2">
                       <h6 class="text-muted">{{item.product.name}}</h6>
                       <h6 class="mb-0">{{item.product.description}}</h6>
                     </div>
-                    <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                    <div class="col-md-4 col-lg-4 col-xl-4 d-flex">
                       <button
                         data-mdb-button-init
                         data-mdb-ripple-init
                         class="btn btn-link px-2"
                         onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
                       >
-                        <i class="bi bi-patch-minus-fill"></i>
+                        <i class="bi bi-patch-minus-fill fs-2"></i>
                       </button>
 
                       <input
@@ -59,10 +59,10 @@
                         class="btn btn-link px-2"
                         onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
                       >
-                        <i class="bi bi-patch-plus-fill"></i>
+                        <i class="bi bi-patch-plus-fill fs-2"></i>
                       </button>
                     </div>
-                    <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                    <div class="col-md-2 col-lg-2 col-xl-2 offset-lg-1">
                       <h6 class="mb-0">{{item.product.price * item.quantity | currency:"EUR"}}</h6>
                     </div>
                     <div class="col-md-1 col-lg-1 col-xl-1 text-end">

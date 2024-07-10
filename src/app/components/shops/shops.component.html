@@ -1,10 +1,24 @@
 <div class="container" class="text-center">
-    <input
-      type="text"
-      placeholder="Cerca (ProductsComponent)"
-      [(ngModel)]="filtro"
-      class="w-75"
-    />
+    
+  <div class="row my-3 ">
+    <div class="col-12 text">
+      <div class="input-group justify-content-center">
+        <div class="form-outline w-75" data-mdb-input-init>
+          <input 
+            type="search"
+            placeholder="Cerca negozio"
+            [(ngModel)]="filtro"
+            class="form-control"
+            id="form1"
+          />
+        </div>
+        <button type="button" class="btn btn-primary" data-mdb-ripple-init>
+          <i class="bi bi-search"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
     <div class="grid">
       @for (shop of filteredShops; track $index) {
       <div *ngIf="shop.denominazione.toLocaleLowerCase().includes(filtro)">

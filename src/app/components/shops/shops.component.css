@@ -17,3 +17,8 @@
     /* padding: 30px; */
   }
 }
+
+input.form-control {
+  height: 60px;
+  border-radius: 50px;
+}
