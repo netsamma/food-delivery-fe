@@ -14,6 +14,7 @@ export class CartComponent implements OnInit{
 
   cartItems: CartItem[] = [];
   cartCount: number = 0;
+  spedizione: number = 5;
 
   constructor(private cartService: CartService){
     effect(() => {

@@ -12,7 +12,7 @@ import { CartService } from '../../services/cart.service';
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css',
 })
-export class NavbarComponent implements OnInit, OnChanges {
+export class NavbarComponent implements OnInit {
   token: string | null = '';
   isOpen: boolean = false;
   cartCount: number = 0;
@@ -23,7 +23,7 @@ export class NavbarComponent implements OnInit, OnChanges {
     private cartService: CartService
   ) {
     effect(() => {
-      this.cartCount = this.cartService.getCartItems().length;
+      this.cartCount = this.cartService.getCartCount();
     });
   }
 
@@ -32,11 +32,6 @@ export class NavbarComponent implements OnInit, OnChanges {
       this.token = token;
       console.log('Token changed:', this.token); // Aggiungi questo per il debug
     })
-  }
-
-  ngOnChanges(){
-    this.cartCount = this.cartService.getCartCount();
-    //this.cartCount = 5;
   }
 
   logout() {

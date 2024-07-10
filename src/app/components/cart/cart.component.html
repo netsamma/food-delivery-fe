@@ -41,14 +41,14 @@
                         class="btn btn-link px-2"
                         onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
                       >
-                        <i class="fas fa-minus"></i>
+                        <i class="bi bi-patch-minus-fill"></i>
                       </button>
 
                       <input
                         id="form1"
                         min="0"
                         name="quantity"
-                        value="1"
+                        value={{item.quantity}}
                         type="number"
                         class="form-control form-control-sm"
                       />
@@ -59,11 +59,11 @@
                         class="btn btn-link px-2"
                         onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
                       >
-                        <i class="fas fa-plus"></i>
+                        <i class="bi bi-patch-plus-fill"></i>
                       </button>
                     </div>
                     <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                      <h6 class="mb-0">€ 44.00</h6>
+                      <h6 class="mb-0">{{item.product.price * item.quantity | currency:"EUR"}}</h6>
                     </div>
                     <div class="col-md-1 col-lg-1 col-xl-1 text-end">
                       <a href="#!" class="text-muted"
@@ -97,12 +97,10 @@
                   <h5 class="text-uppercase mb-3">Spedizione</h5>
 
                   <div class="mb-4 pb-2">
-                    <select data-mdb-select-init>
+                    <!-- <select data-mdb-select-init>
                       <option value="1">Standard-Delivery- €5.00</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
-                      <option value="4">Four</option>
-                    </select>
+                    </select> -->
+                    <p class="fs-5">Spedizione: {{spedizione | currency:"EUR"}}</p>
                   </div>
 
                   <h5 class="text-uppercase mb-3">Give code</h5>
@@ -124,7 +122,7 @@
 
                   <div class="d-flex justify-content-between mb-5">
                     <h5 class="text-uppercase">Total price</h5>
-                    <h5>€ 137.00</h5>
+                    <h5>{{spedizione + totalCartPrice() | currency:"EUR"}}</h5>
                   </div>
 
                   <button

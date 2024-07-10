@@ -16,11 +16,13 @@ export class CartService {
   addToCart(product: Product) {    
     const existingItem = this.cartItemsSignal().find(item => item.product.id === product.id);
     if (existingItem) {
-      existingItem.quantity += 1;
+      this.cartItemsSignal.update(cartItems => cartItems.map(item =>
+        item.product.id === product.id
+          ? { ...item, quantity: item.quantity + 1 } : item
+      ));
     } else {
       this.cartItemsSignal.update(cartItems => [...cartItems, { product, quantity: 1 }]);
     }
-    console.log(this.cartItemsSignal());
   }
   
   getCartItems(){
@@ -28,13 +30,9 @@ export class CartService {
   }
 
   getCartCount(){
-    //return this.cartItemsSignal().length;
-    console.log(this.cartItemsSignal());
-    return 1;
-
-    // return this.cartItemsSignal().reduce((count, item) => {
-    //   return count + (1 * item.quantity);
-    // }, 0);
+    return this.cartItemsSignal().reduce((count, item) => {
+      return count + item.quantity;
+    }, 0);
   }
 
 
