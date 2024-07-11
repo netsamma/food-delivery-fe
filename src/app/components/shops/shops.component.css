@@ -18,7 +18,38 @@
   }
 }
 
-input.form-control {
-  height: 60px;
-  border-radius: 50px;
+button.btn.btn-primary {
+  position: absolute !important;
+  border-radius: 50px !important;
+  right: 5px;
+  top: 5px;
+  z-index: 2;
 }
+
+input.form-control {
+  position: relative !important;
+  background-color: transparent; 
+  height: 50px;
+  border-radius: 50px !important;
+  z-index: 1;
+  padding-right: 50px;
+} 
+
+
+.input-wrapper { 
+  position: relative; 
+  display: inline-block; 
+} 
+
+.input-wrapper input { 
+  padding-right: 40px; 
+} 
+
+.input-wrapper button { 
+  position: absolute; 
+  top: 0; 
+  right: 0; 
+  border: none; 
+  background-color: transparent; 
+  cursor: pointer; 
+} 
