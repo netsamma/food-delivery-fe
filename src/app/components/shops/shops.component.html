@@ -1,6 +1,8 @@
 <!-- https://www.geeksforgeeks.org/how-to-add-button-inside-an-input-field-in-html/ -->
 <div class="container">
 
+  <app-search-input (searchChange)="onSearchChange($event)"></app-search-input>
+
   <div class="input-group justify-content-center my-3">
     <input
       type="search"
@@ -12,20 +14,12 @@
       <i class="bi bi-search"></i>
     </button>
   </div> 
-
-  <div class="input-wrapper w-100"> 
-    <input type="text" placeholder="Cerca negozio"
-      [(ngModel)]="filtro"
-      class="form-control"
-    /> 
-    <button onclick="alert('Button clicked!');" type="button" class="btn btn-primary fs-3"> 🔍 </button> 
-  </div> 
   
   
   <div class="grid">
     @for (shop of filteredShops; track $index) {
     <div *ngIf="shop.denominazione.toLocaleLowerCase().includes(filtro)">
-      <app-shop [shop]="shop" (myEvent)="handleEvent($event)"></app-shop>
+      <app-shop [shop]="shop"></app-shop>
     </div>
     }
   </div>

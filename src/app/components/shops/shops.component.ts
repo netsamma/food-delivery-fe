@@ -1,15 +1,15 @@
 import { NgFor, NgIf } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal, Signal, computed } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Shop } from '../../interfaces/shop';
 import { ShopComponent } from '../shop/shop.component';
 import { ShopsService } from '../../services/shops.service';
-// import items from '../data/products';
+import { SearchInputComponent } from '../search-input/search-input.component';
 
 @Component({
   selector: 'app-shops',
   standalone: true,
-  imports: [ NgFor, NgIf, FormsModule, ShopComponent],
+  imports: [ NgFor, NgIf, FormsModule, ShopComponent, SearchInputComponent],
   templateUrl: './shops.component.html',
   styleUrl: './shops.component.css',
 })
@@ -18,6 +18,8 @@ export class ShopsComponent implements OnInit {
   shops: Shop[] = [];
   filteredShops: Shop[] = [];
   filtro: string = '';
+  // searchQuery: string = '';
+  searchQuery: Signal<string> = signal('');
 
   constructor(private shopsService: ShopsService) {}
 
@@ -38,7 +40,8 @@ export class ShopsComponent implements OnInit {
   }
 
 
-handleEvent(event: string) {
-  console.log(event);
-}
+  onSearchChange(searchQuery: string) {
+   // this.searchQuery.set(searchQuery);
+  }
+
 }

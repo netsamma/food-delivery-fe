@@ -1,0 +1,11 @@
+<div class="input-wrapper w-100"> 
+    <input type="text" placeholder="Cerca negozio"
+      [(ngModel)]="searchTerm"
+      class="form-control"
+      [value]="searchTerm()"
+      (input)="updateSearchTerm($event)"
+    /> 
+    <button onclick="alert('Button clicked!');" type="button" class="btn btn-primary fs-3"> 
+        🔍 
+    </button> 
+</div> 
