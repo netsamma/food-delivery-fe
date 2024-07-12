@@ -42,6 +42,7 @@ export class ShopsComponent implements OnInit {
 
   onSearchChange(searchQuery: string) {
    // this.searchQuery.set(searchQuery);
+   this.filtro = searchQuery;
   }
 
 }
