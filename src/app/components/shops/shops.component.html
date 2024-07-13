@@ -1,24 +1,11 @@
 <!-- https://www.geeksforgeeks.org/how-to-add-button-inside-an-input-field-in-html/ -->
+<!-- https://medium.com/@bananicabananica/search-and-filter-with-angular-signals-b63e2b587001 -->
+
 <div class="container">
-
   <app-search-input (searchChange)="onSearchChange($event)"></app-search-input>
-
-  <div class="input-group justify-content-center my-3">
-    <input
-      type="search"
-      placeholder="Cerca negozio"
-      [(ngModel)]="filtro"
-      class="form-control"
-    />
-    <button type="button" class="btn btn-primary">
-      <i class="bi bi-search"></i>
-    </button>
-  </div> 
-  
-  
   <div class="grid">
-    @for (shop of filteredShops; track $index) {
-    <div *ngIf="shop.denominazione.toLocaleLowerCase().includes(filtro)">
+    @for (shop of filteredShops(); track $index) {
+    <div>
       <app-shop [shop]="shop"></app-shop>
     </div>
     }
