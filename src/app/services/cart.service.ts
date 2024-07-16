@@ -1,4 +1,4 @@
-import { Injectable, signal } from '@angular/core';
+import { computed, Injectable, signal } from '@angular/core';
 import { CartItem } from '../interfaces/cart-item';
 import { Product } from '../interfaces/product';
 
@@ -10,8 +10,20 @@ export class CartService {
 
   get cartItems() {
     return this.cartItemsSignal();
-    return null;
   }
+
+  cartCount = computed(() => {
+    return this.cartItemsSignal().reduce((count, item) => count + item.quantity, 0);
+  });
+
+  cartProductTotal = computed(() => {
+    return this.cartItemsSignal().reduce((total, item) => total + item.quantity * item.product.price, 0);
+  });
+
+  cartProductsTotal = computed(()=> {
+    console.log(this.cartItemsSignal);
+    return this.cartItemsSignal().reduce((total, item) => total + item.quantity * item.product.price, 0);
+  })
 
   addToCart(product: Product) {    
     const existingItem = this.cartItemsSignal().find(item => item.product.id === product.id);
@@ -25,14 +37,20 @@ export class CartService {
     }
   }
   
-  getCartItems(){
-    return this.cartItemsSignal()
+
+  incrementQuantity(productId: number) {
+    this.cartItemsSignal.update(cartItems =>
+      cartItems.map(item =>
+        item.product.id === productId
+          ? { ...item, quantity: item.quantity + 1 }
+          : item
+      )
+    );
   }
 
-  getCartCount(){
-    return this.cartItemsSignal().reduce((count, item) => {
-      return count + item.quantity;
-    }, 0);
+  
+  getCartItems(){
+    return this.cartItemsSignal()
   }
 
 

@@ -48,22 +48,23 @@
                         id="form1"
                         min="0"
                         name="quantity"
-                        value={{item.quantity}}
+                        [(ngModel)]="item.quantity"
                         type="number"
                         class="form-control form-control-sm"
                       />
+                      <!-- onclick="this.parentNode.querySelector('input[type=number]').stepUp()" -->
 
                       <button
                         data-mdb-button-init
                         data-mdb-ripple-init
                         class="btn btn-link px-2"
-                        onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
+                        (click)="incrementQuantity(item.product.id)"
                       >
                         <i class="bi bi-patch-plus-fill fs-2"></i>
                       </button>
                     </div>
                     <div class="col-md-2 col-lg-2 col-xl-2 offset-lg-1">
-                      <h6 class="mb-0">{{item.product.price * item.quantity | currency:"EUR"}}</h6>
+                      <h6 class="mb-0">{{cartProductTotal | currency:"EUR"}}</h6>
                     </div>
                     <div class="col-md-1 col-lg-1 col-xl-1 text-end">
                       <a href="#!" class="text-muted"
@@ -91,7 +92,7 @@
 
                   <div class="d-flex justify-content-between mb-4">
                     <h5 class="text-uppercase">Totale prodotti</h5>
-                    <h5>{{totalCartPrice() | currency:"EUR"}}</h5>
+                    <h5>{{cartProductsTotal | currency:"EUR"}}</h5>
                   </div>
 
                   <h5 class="text-uppercase mb-3">Spedizione</h5>

@@ -23,7 +23,7 @@ export class NavbarComponent implements OnInit {
     private cartService: CartService
   ) {
     effect(() => {
-      this.cartCount = this.cartService.getCartCount();
+      this.cartCount = this.cartService.cartCount();
     });
   }
 
