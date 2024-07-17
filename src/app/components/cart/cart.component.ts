@@ -21,6 +21,7 @@ export class CartComponent implements OnInit{
 
   constructor(private cartService: CartService){
     effect(() => {
+      this.cartItems = this.cartService.getCartItems();
       this.cartCount = this.cartService.getCartItems().length;
       this.cartProductTotal = this.cartService.cartProductTotal();
       this.cartProductsTotal = this.cartService.cartProductsTotal();
@@ -29,13 +30,6 @@ export class CartComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.cartItems = this.cartService.getCartItems();
-  }
-
-  totalCartPrice(){
-    return this.cartItems.reduce((total, item) => {
-      return total + item.product.price * item.quantity;
-    }, 0);
   }
 
   incrementQuantity(productId: number) {
