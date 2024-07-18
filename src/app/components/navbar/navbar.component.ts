@@ -1,4 +1,4 @@
-import { Component, effect, OnChanges, OnInit } from '@angular/core';
+import { Component, effect, HostListener, OnChanges, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ProductsService } from '../../services/products.service';
 import { NgIf } from '@angular/common';
@@ -47,6 +47,14 @@ export class NavbarComponent implements OnInit {
   toggleMenu() {
     this.isOpen = !this.isOpen;
     console.log(this.isOpen);
+  }
+
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: Event) {
+    const target = event.target as HTMLElement;
+    if (target.tagName === 'A') {
+      this.toggleMenu();
+    }
   }
 
 

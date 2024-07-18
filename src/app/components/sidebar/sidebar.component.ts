@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -9,5 +9,16 @@ import { RouterLink } from '@angular/router';
   styleUrl: './sidebar.component.css'
 })
 export class SidebarComponent {
+
+  isOpen: boolean = false;
+
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: Event) {
+    const target = event.target as HTMLElement;
+    if (target.tagName === 'A') {
+      //this.toggleMenu();
+    }
+  }
+
 
 }

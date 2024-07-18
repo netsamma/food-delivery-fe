@@ -39,7 +39,7 @@
                         data-mdb-button-init
                         data-mdb-ripple-init
                         class="btn btn-link px-2"
-                        onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
+                        (click)="decrementQuantity(item.product.id)"
                       >
                         <i class="bi bi-patch-minus-fill fs-2"></i>
                       </button>
@@ -52,7 +52,6 @@
                         type="number"
                         class="form-control form-control-sm"
                       />
-                      <!-- onclick="this.parentNode.querySelector('input[type=number]').stepUp()" -->
 
                       <button
                         data-mdb-button-init
@@ -67,7 +66,7 @@
                       <h6 class="mb-0">{{item.product.price * item.quantity| currency:"EUR"}}</h6>
                     </div>
                     <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                      <a href="#!" class="text-muted"
+                      <a (click)= "removeProductCart(item.product.id)" class="text-muted"
                         ><i class="bi bi-trash3-fill h3"></i
                       ></a>
                     </div>

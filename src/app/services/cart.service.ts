@@ -1,6 +1,7 @@
 import { computed, Injectable, signal } from '@angular/core';
 import { CartItem } from '../interfaces/cart-item';
 import { Product } from '../interfaces/product';
+import { findIndex } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -37,12 +38,27 @@ export class CartService {
     }
   }
   
+  removeProductCart(productId: number) {   
+    const index = this.cartItemsSignal().findIndex(item => item.product.id == productId) 
+    this.cartItemsSignal().splice(index, 1);
+    this.cartItemsSignal.update(cartItems => [...cartItems]);
+  }
 
   incrementQuantity(productId: number) {
     this.cartItemsSignal.update(cartItems =>
       cartItems.map(item =>
         item.product.id === productId
           ? { ...item, quantity: item.quantity + 1 }
+          : item
+      )
+    );
+  }
+
+  decrementQuantity(productId: number) {
+    this.cartItemsSignal.update(cartItems =>
+      cartItems.map(item =>
+        item.product.id === productId
+          ? { ...item, quantity: item.quantity - 1 }
           : item
       )
     );

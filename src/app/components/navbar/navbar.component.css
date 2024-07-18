@@ -31,6 +31,11 @@
   border: none;
 }
 
+.cart{
+  padding: 0 !important; 
+  margin: 0 !important;
+}
+
 .overlay {
   display: block;
   height: 100%;
