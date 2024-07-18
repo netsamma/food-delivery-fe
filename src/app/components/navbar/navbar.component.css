@@ -48,3 +48,15 @@
   overflow-x: hidden;
   transition: 0.5s;
 }
+
+.cart-container {
+  position: relative;
+}
+
+/* Centra l'icona del carrello su dispositivi mobili */
+@media (min-width: 767.98px) {
+  .cart-container {
+    position: absolute;
+    right: 5%;
+  }
+}
